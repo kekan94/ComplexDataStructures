@@ -1,3 +1,6 @@
+// How would you iterate through a directed graph? What about an undirected graph?
+// How would you create a cycle with a directed graph?
+
 const Edge = require('./Edge.js');
 const Vertex = require('./Vertex.js');
 
@@ -54,6 +57,21 @@ class Graph {
       }
     } else {
       throw new Error('Expected Vertex arguments.');
+    }
+  }
+
+  createCycleByHand(arrayOfVertices) /*improve this*/ {
+    if (this.isDirected) {
+      let output = '';
+      for (let i = 0; i < arrayOfVertices.length; i++) {
+        if (arrayOfVertices[i] instanceof Vertex) {
+          output += arrayOfVertices[i].data + ' --> ';
+        }
+      }
+      output += arrayOfVertices[0].data;
+      console.log(output);
+    } else {
+      console.log('Cannot create a cycle with an undirected graph!');
     }
   }
 
